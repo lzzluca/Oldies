@@ -1,0 +1,2 @@
+" ctrlp-smarttab on the <AltGr> + p
+nnoremap þ :CtrlPSmartTabs<CR>

@@ -1,0 +1,2 @@
+" key mapping to run the amazing VCSVimDiff
+nnoremap <F7> :VCSVimDiff<CR>

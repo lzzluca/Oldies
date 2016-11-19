@@ -1,0 +1,17 @@
+" Syntastic is a syntax checking plugin that runs files through external
+" syntax checkers and displays any resulting errors to the user
+" Home:
+"   https://github.com/scrooloose/syntastic
+" Dependencies:
+"   Node.js module JSHint
+"   file ~/.jshintrc setted for JS, check here for a nice one:
+"   https://github.com/oryband/dotfiles/blob/master/jshintrc
+Bundle 'https://github.com/scrooloose/syntastic.git'
+
+" Options:                                                                                                                                                                                                                               
+" Perl syntax checker                                                                                                                                                                                                                    
+let g:syntastic_enable_perl_checker = 1                                                                                                                                                                                                  
+let g:syntastic_perl_checkers = ['perl']                                                                                                                                                                                                 
+" Js syntax checker                                                                                                                                                                                                                      
+let g:syntastic_enable_javascript_checker = 1                                                                                                                                                                                            
+let g:syntastic_javascript_checkers = ['jshint']                                                                                                                                                                                         

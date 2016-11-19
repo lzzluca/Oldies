@@ -1,0 +1,36 @@
+I am going to introduce here the .vimrc builder (also inspired by
+David Escribano Garcia https://github.com/DavidEGx ): the .vimrc grows
+quickly so I was looking for a way to keep it modular and organized.
+It is basically a Makefile: it concats the vimrcp files (vimrcp as vimrc part)
+in the root folder three, adding also basic comments for the different sections.
+This is the three explanation:
+root:
+  |__-_Makefile       : the builder
+  |__-_generic.vimrcp : generic settings, (for example, I have there the
+                          function to avoid the "replace mode")
+  |__-_sets.vimrcp    : all the sets! 
+  |__-_wcn.vimrcp     : these are settings for my company, WCN plc . Every file
+                        added to the root is builded, if its extension is
+                          .vimrcp
+  |__d_keymaps        : inside here are expected to be all the keymap vimrcp
+                          files (related to vim and not to plugins, for example
+                          keymaps to move around tabs)
+  |__d_plugins        : inside here are expected to be all the vimrcp files
+                          related to plugins
+    |__d_dependencies : plugins dependencies, (like Vundle header and footer)
+    |__d_keymaps      : well, the same of the "keymaps" folder above, but this
+                          one targets the plugins
+
+The builder expects the files generic.vimrcp and sets.vimrcp, plus the folders
+"keymaps" and "plugins". All the file added in root (in my repo, for example,
+wcn.vimrcp) are included in the building too. Files inside the folder "old",
+instead, are ignored.
+NOTE: only file with .vimrc extension will be builded! Change the extension
+makes the file ingored.
+
+To get my .vimrc with all the plugins, just run make to get the .vimrc builded;
+copy the generated .vimrc in your home (make a backup copy of your previous!).
+Then install Vundle: https://github.com/gmarik/vundle
+(close and) open vim and run:
+:BundleInstall
+All the plugins should be installed!

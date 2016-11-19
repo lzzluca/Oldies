@@ -1,0 +1,20 @@
+"http://stackoverflow.com/questions/12774141/strange-changing-background-color-in-vim-solarized
+set t_ut=
+"https://raw.github.com/vim-scripts/xoria256.vim/master/colors/xoria256.vim
+"set t_Co=256 | colorscheme xoria256
+set t_Co=256 | colorscheme molokai
+set nocompatible "i don't know what but the marks work now
+set expandtab
+set tabstop=2 "Set tabstop to tell vim how many columns a tab counts for
+set shiftwidth=2 "Set shiftwidth to control how many columns text is indented with the reindent operations (<< and >>) and automatic C-style indentation
+set autoindent "does nothing more than copy the indentation from the previous line, when starting a new line
+set smartindent "automatically inserts one extra level of indentation in some cases, and works for C-like files
+set number "it showes the row number
+set mouse=a "makes the mouse working on vim
+set hls "highlights words that matches the patterns of the search
+set laststatus=2 "shows the status bar (helpful for example to print the name of the displayed file on the bottom of the screen)
+"To show the specified unicode symbol for the specified tab/new line/...
+"It shown by: set list
+set listchars=tab:➟\ ,eol:⤦
+"it colours the column at position 80, to mark it
+set colorcolumn=80

@@ -1,0 +1,59 @@
+syntax on
+
+highlight Comment ctermfg=green
+
+" Toggle absolute / relative number
+function! NumberToggle()
+  if(&relativenumber == 1)
+    set number
+  else
+    set relativenumber
+  endif
+endfunc
+nnoremap <C-n> :call NumberToggle()<cr>
+
+" Persistent undo files
+let s:undodir = $HOME . "/.vim/undo"
+if exists("*mkdir")
+  try
+    call mkdir(s:undodir)
+  catch
+  endtry
+endif
+execute "set undodir=" . s:undodir
+set undofile
+
+set backupdir=/home/luca/.vim/backup,.
+
+" Sets folder for swap files
+let s:backupdir = $HOME . "/.vim/backup"
+if exists("*mkdir")
+  try
+    call mkdir(s:backupdir)
+  catch
+  endtry
+endif
+execute "set backupdir=" . s:backupdir
+
+" Related to the swap folders above (and probably optional)
+let s:directory = $HOME . "/.vim/directory"
+if exists("*mkdir")
+  try
+    call mkdir(s:directory)
+  catch
+  endtry
+endif
+execute "set directory=" . s:directory
+
+" it forbids the replace mode
+" See: http://stackoverflow.com/questions/4110348/is-it-possible-to-disable-replace-mode-in-vim
+function s:ForbidReplace()
+    if v:insertmode isnot# 'i'
+        call feedkeys("\<Insert>", "n")
+    endif
+endfunction
+augroup ForbidReplaceMode
+    autocmd!
+    autocmd InsertEnter  * call s:ForbidReplace()
+    autocmd InsertChange * call s:ForbidReplace()
+augroup END

@@ -1,0 +1,5 @@
+This code is designed to add the rows navigatation to the jQuery DataTable plugin.
+This is an alpha, I built it at work but at the moment the task is suspended. To be continued...
+
+Just open index.html inside your favourite browser and see it in action: key arrows keys should move the selection up and down the rows.
+The plugin doesn't seem to work with paginated dataTables yet.

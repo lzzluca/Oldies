@@ -1,0 +1,27 @@
+" tabs: <alt gr> mappings
+let g:lasttab = 1
+augroup tags
+  autocmd!
+  autocmd TabLeave * let g:lasttab = tabpagenr()
+  "autocmd TabEnter * call SetStatusLine()
+augroup END
+
+nnoremap ŧ :exe "tabn ".g:lasttab<CR>
+
+" tabs: <alt> mappings
+nnoremap <esc>l <esc>gt<CR>
+nnoremap <esc>h <esc>gT<CR>
+nnoremap <esc>1 <esc>1gt
+nnoremap <esc>2 <esc>2gt
+nnoremap <esc>3 <esc>3gt
+nnoremap <esc>4 <esc>4gt
+nnoremap <esc>5 <esc>5gt
+nnoremap <esc>6 <esc>6gt
+nnoremap <esc>7 <esc>7gt
+nnoremap <esc>8 <esc>8gt
+nnoremap <esc>9 <esc>9gt
+" the next two lines break the <C-i> in insert mode
+"nnoremap <Tab> gt
+"nnoremap <S-Tab> gT
+" doesnt make sense to get this one without the two above
+"nnoremap <S-Tab> <esc>gT

@@ -1,0 +1,13 @@
+" keys mapping  toggle for NERD tree + Tagbar, as sidebars
+" Notes:
+"   it is only hiding for the Tagbar, just for my personal convenience
+function! Toggle()
+  NERDTreeToggle
+  "TagbarToggle
+  TagbarClose
+  wincmd l
+  set number!
+endfunction
+
+nnoremap <F12> :call Toggle()<CR>
+" end keys mapping  toggle for NERD tree + Tagbar

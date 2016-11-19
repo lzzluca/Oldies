@@ -1,0 +1,9 @@
+" VIM 7 plugin useful for manipulating files controlled by CVS, SVN, SVK, git,
+" bzr, and hg within VIM, including committing changes and performing diffs
+" using the vimdiff system.  Keywords:  bazaar bzr cvs CVS cvscommand git
+" mercurial hg subversion SVN svk vcscommand
+" Home:
+"   http://www.vim.org/scripts/script.php?script_id=90
+" Notes:
+"   run :VCSVimDiff inside vim and get amazed!
+Bundle 'vim-scripts/vcscommand.vim'

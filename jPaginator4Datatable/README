@@ -1,0 +1,16 @@
+jQuery DataTables jPaginator v1.0 (https://github.com/lzzluca/jPaginator4Datatable)
+by Luca Lazzarini <lzzluca@gmail.com>
+A fork from:
+jQuery DataTables jPaginator plugin v1.0
+by Ernani Azevedo <azevedo@intellinews.com.br>
+
+The fork was born from this topic:
+http://datatables.net/forums/discussion/12319/paginator-like-httpremylab.github.comjpaginator
+
+Licensed under GPL v3.0.
+
+You'll need jQuery DataTables (http://datatables.net/) and jPaginator
+(http://remylab.github.com/jpaginator/) loaded before load this one.
+
+An updated version on this code is available, look here:
+http://nerdstuckathome.wordpress.com/2012/11/05/jpaginator-as-paginator-for-the-jquery-datatable-plugin/

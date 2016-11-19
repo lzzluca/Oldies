@@ -1,0 +1,26 @@
+" Tagbar displays the tags of the current file in a sidebar.
+" Home:
+" http://majutsushi.github.io/tagbar/
+" Dependences: 
+"   the ctags package (from Debian's repo)
+"   file ~/.ctags setted for js, check here:
+"   https://github.com/majutsushi/tagbar/wiki
+Bundle 'https://github.com/majutsushi/tagbar'
+
+" Options: (for more check https://github.com/majutsushi/tagbar/wiki)
+" ctags bin path
+let Tlist_Ctags_Cmd = '/usr/bin/ctags'
+" settings needed for JS
+let g:tagbar_type_javascript = {
+    \ 'ctagstype' : 'JavaScript',
+    \ 'kinds'     : [
+        \ 'o:objects',
+        \ 'f:functions',
+        \ 'a:arrays',
+        \ 's:strings'
+    \ ]
+    \ }
+" single click enabled; otherwise it wants two clicks to open a node
+let g:tagbar_singleclick = 1
+" Tagbar opened at start up
+" autocmd VimEnter * nested :TagbarOpen

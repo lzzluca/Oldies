@@ -1,0 +1,43 @@
+" custom JS make for WCN
+" command! WCNMake execute "make -C WCN/root"
+set makeprg=make\ -C\ WCN/root/\ clean\ all
+
+" The purpose of the following is to add Perl's helpful functions (all the
+" functions are from David at the moment!)
+augroup perl
+  autocmd!
+  autocmd BufRead,BufNewFile *.tt call FixTT()
+  autocmd FileType perl call FixPerl()
+augroup END
+
+function! FixPerl()
+  " Fix perl man
+  setlocal keywordprg=perldoc\ 
+
+  " Fix gf for Perl
+  setlocal path=.,~/dev/vX/WCN/lib/,~/dev/vX/WCN/t/lib/,~/dev/vX/WCN/template/
+  setlocal isfname+=:
+  setlocal suffixesadd+=.pm,pl,tt
+  setlocal includeexpr=substitute(v:fname,'::','/','g')
+
+  setlocal tags=~/.vim/tags/tags
+endfunction
+
+function! FixTT()
+  " Fix syntax
+  set filetype=tt2
+
+  " Fix gf for tt
+  setlocal path=.,~/dev/vX/WCN/template/
+endfunction
+
+function! GetDocumentation()
+  if (&filetype ==# 'perl')
+    setlocal iskeyword+=:
+    normal! K
+    setlocal iskeyword-=:
+  else
+    normal! K
+  endif
+endfunction
+nnoremap K :call GetDocumentation()<CR>
