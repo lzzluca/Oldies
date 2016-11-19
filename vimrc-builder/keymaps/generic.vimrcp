@@ -1,0 +1,4 @@
+" avoid to use the shift to type commands
+"nnoremap ; :
+" allows to run a system command by just !
+nnoremap ! !: 

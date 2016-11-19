@@ -1,0 +1,126 @@
+/**
+ * jQuery DataTables jPaginator v1.0 (https://github.com/lzzluca/jPaginator4Datatable)
+ * by Luca Lazzarini <lzzluca@gmail.com>
+ * A fork from:
+ * jQuery DataTables jPaginator plugin v1.0
+ * by Ernani Azevedo <azevedo@intellinews.com.br>
+ *
+ * Licensed under GPL v3.0.
+ *
+ * You'll need jQuery DataTables (http://datatables.net/) and jPaginator
+ * (http://remylab.github.com/jpaginator/) loaded before load this one.
+ *
+ *
+ * This file is intended as replacement to the original jPaginator CSS file
+ *
+ *
+*/	
+
+/* must set border width with px */
+	.paginator_p {
+		text-align:center;
+		float:left;
+		color:white;
+		background-color:#B7B7B7;
+		cursor:pointer;
+		padding:2px 0 0 0;
+	}
+	.paginator_p_bloc {
+		position:relative;
+		width:3000px;
+	}
+	.paginator_p.over {
+		background-color:#8B8B8B;
+	}
+	.paginator_p.selected {
+		background-color:#CAFF3A;
+		color:white;
+		background-color:black;
+	}
+	.paginator_p_wrap {
+		position:relative;
+		overflow:hidden;
+		float:left;
+		-webkit-user-select: none;
+		-khtml-user-select: none;
+		-moz-user-select: none;
+		-o-user-select: none;
+		user-select: none;
+	}
+	.paginator_slider {
+		clear:left;
+		height: 4px;
+		top: 4px;
+		background: white;
+		border: solid 1px black;
+		position:relative;
+	}
+
+	.paginator_slider .ui-slider-handle {
+		width: 8px;
+		height: 12px;
+		position: absolute;
+		top: -4px;
+		background-color:black;
+	}
+
+  #m_left {
+    background-color: orange; 
+    cursor: pointer;
+    float: left;
+    height: 15px;
+    margin: 4px 2px 0 0;
+    width: 22px
+  } 
+  #o_left {
+    background-color: green; 
+    float: left;
+    height: 15px;
+    margin: 4px 4px 0 0;
+    width: 22px;
+  }
+  #o_right {
+    background: green; 
+    float: left;
+    height: 15px;
+    margin: 4px 0 0 4px;
+    width: 22px;
+  }
+  #m_right{
+    background: orange;
+    cursor: pointer;
+    float: left;
+    height: 15px;
+    margin: 4px 0 0 2px;
+    width: 22px;
+  }
+  #m_left1 {
+    background-color: orange; 
+    cursor: pointer;
+    float: left;
+    height: 15px;
+    margin: 4px 2px 0 0;
+    width: 22px
+  } 
+  #o_left1 {
+    background-color: green; 
+    float: left;
+    height: 15px;
+    margin: 4px 4px 0 0;
+    width: 22px;
+  }
+  #o_right1 {
+    background: green; 
+    float: left;
+    height: 15px;
+    margin: 4px 0 0 4px;
+    width: 22px;
+  }
+  #m_right1 {
+    background: orange;
+    cursor: pointer;
+    float: left;
+    height: 15px;
+    margin: 4px 0 0 2px;
+    width: 22px;
+  }

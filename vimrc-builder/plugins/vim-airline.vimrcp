@@ -1,0 +1,8 @@
+" vim-airline: lean & mean status/tabline for vim that's light as air.
+" Home:
+"   https://github.com/bling/vim-airline
+Bundle 'https://github.com/bling/vim-airline'
+
+" Options: (for more check: https://github.com/bling/vim-airline/blob/master/doc/airline.txt)
+" specify a theme (molokai in this case)
+" let g:airline_theme='molokai'

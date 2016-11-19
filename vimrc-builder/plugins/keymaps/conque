@@ -1,0 +1,23 @@
+" keys mapping to show and hide Counque, as middle bottom screen (check the notes)
+" Notes:
+"   designed on vim setted up with NERD tree and Tagbar as sidebars
+function! ConqueOpen()
+  wincmd l
+  exe "norm!" "\<C-w>s"
+  wincmd j
+  ConqueTerm bash
+  "the combo works but not called like this
+  exe "norm!" "10<C-w>-" 
+  "exe "norm!" winheight(".")/2 "found this on the web but doesn't work
+endfunction
+
+function! ConqueClose()
+  wincmd h " here i know i am at the most left win<F6>
+  wincmd l " here i know i am at the center
+  wincmd j " bottom center: here it is supposed to be the ConqueTerm
+  execute ":q"
+endfunction
+
+nnoremap <F5> :call ConqueOpen()<CR>
+nnoremap <F6> :call ConqueClose()<CR>
+" end keys mapping  show and hide for Counque

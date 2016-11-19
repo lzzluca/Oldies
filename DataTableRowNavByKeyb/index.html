@@ -1,0 +1,91 @@
+<html>
+  <head>
+    <style>
+    /* ////////////////////////////// table style ////////////////////////////////// */
+
+    .table {}
+
+    .th {
+        background-color: #857D91;
+    }
+
+    .corner {
+        visibility: hidden;
+    }
+
+    .trb.odd {
+        background-color: lightviolet;
+    }
+
+    .trb.even {
+        background-color: lightgrey;
+    }
+
+    .dataTables_filter {
+      display: none;
+    }
+
+    .dataTables_paginate, .dataTables_info {
+      margin: 10px;
+    }
+
+    .dataTables_length {
+      display: none;
+    }
+
+    .dataTables_info {
+      color: darkviolet;
+    }
+
+    .row-highlighted {
+      background-color: violet!important;
+    }
+
+    .row_selected {
+      background-color: blue!important;
+    }
+
+/* ////////////////////////////// end table style ////////////////////////////// */
+
+    </style>
+    <script type="text/javascript" src="jquery-2.1.0.min.js"> </script>
+    <script type="text/javascript" src="jquery.dataTables.1.8.2-min.js"> </script>
+    <script type="text/javascript" src="table_generator.js"> </script>
+    <script type="text/javascript" src="dtRowsNavigationByKeyb.js"> </script>
+        <script type="text/javascript"> 
+          window.onload = function() {
+            
+            var mainBox = document.getElementById("main_container");
+            if (mainBox) {
+                
+              mainBox.innerHTML = new TableGenerator().getHTML();
+
+              var rowHighlightedClass = "row-highlighted",
+                  rowSelectedClass = "row-selected",
+                  oTable = $("table").dataTable({
+                    sPaginationType: "full_numbers",
+                    bPaginate: true,
+                    sDom: '<"dt-hd"r<"right"ilp>>t<"dt-ft"<"paginator"pP>>',
+                    fnDrawCallback: function(){
+                      !( $("table tbody tr").find( rowHighlightedClass )[0] ) && $("table tbody tr").first().addClass( rowHighlightedClass );
+                      $("table").focus();
+                    }
+                  });
+
+              $("table").dtRowsNavigationByKeyb({
+                 // here you define the class to apply to the row, to highlight it! It is not the class applied to select a row! That one is "row_selected", by default
+                 selectedClass: rowHighlightedClass, 
+                 enterBtnCallback: function(tr) { $(tr).toggleClass( rowSelectedClass )  }, 
+                 upBtnCallback: function(tr){},
+                 downBtnCallback: function(tr){}
+              });
+                
+            }
+          }
+        </script>
+  </head>
+  <body>
+    <div id="main_container"></div>
+  </body>
+</html>
+

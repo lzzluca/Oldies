@@ -1,0 +1,4 @@
+" Vim CtrlP plugin to switch between opened tabs.
+" Home:
+"   https://github.com/DavidEGx/ctrlp-smarttabs
+Bundle 'DavidEGx/ctrlp-smarttabs'

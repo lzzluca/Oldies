@@ -1,0 +1,11 @@
+" The NERD tree allows you to explore your filesystem and to
+" open files and directories; it also allows you to perform simple filesystem
+" operations.
+" Home:
+"   https://github.com/scrooloose/nerdtree
+Bundle 'https://github.com/scrooloose/nerdtree'
+Bundle 'https://github.com/jistr/vim-nerdtree-tabs'
+
+" Options:
+" runs NERDTree-tabs automatically: it breaks the mksession cmd??
+" let g:nerdtree_tabs_open_on_console_startup=1

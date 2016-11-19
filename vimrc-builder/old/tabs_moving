@@ -1,0 +1,37 @@
+" Move a tab feature. WITH VIM 7.3 (NOT SURE ABOUT THE VERSION) IS OUT OF THE BOX!
+" Notes:
+" http://stackoverflow.com/questions/2106138/rearrange-tabs-with-the-mouse-in-gvim
+" TODO
+"   Map buttons to call these functions!
+function! TabLeft()
+   let tab_number = tabpagenr() - 1
+   if tab_number == 0
+      execute "tabm" tabpagenr('$') - 1
+   else
+      execute "tabm" tab_number - 1
+   endif
+endfunction
+function! TabRight()
+   let tab_number = tabpagenr() - 1
+   let last_tab_number = tabpagenr('$') - 1
+   if tab_number == last_tab_number
+      execute "tabm" 0
+   else
+      execute "tabm" tab_number + 1
+   endif
+endfunction
+
+
+
+
+
+
+
+
+
+
+
+
+
+Bundle 'https://github.com/yuratomo/w3m.vim'
+

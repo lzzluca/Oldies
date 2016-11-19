@@ -1,0 +1,11 @@
+" CtrlP is a full path fuzzy file, buffer, mru, tag, ... finder for Vim
+" Home:
+"   https://github.com/kien/ctrlp.vim
+Bundle 'https://github.com/kien/ctrlp.vim'
+
+" Options:
+" opening files from the CtrlP plugin in a new tab
+let g:ctrlp_prompt_mappings = {
+    \ 'AcceptSelection("e")': ['<c-t>'],
+    \ 'AcceptSelection("t")': ['<cr>', '<2-LeftMouse>'],
+    \ }
