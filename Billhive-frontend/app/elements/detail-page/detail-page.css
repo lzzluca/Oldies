@@ -1,0 +1,88 @@
+/*
+ *  Core
+ */
+
+:host { font-family: sans-serif; }
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+div.section {
+  /* TODO
+       Why it takes 2 lines, using widht: 50%; ??? */
+  width: 33.3%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+/*
+ *  Style
+ */
+
+:host { color: white; }
+
+h3, h5 { font-weight: 500; }
+
+h3 {
+  display: inline-block;
+  margin: .2em 0 0 0;
+}
+
+h3:nth-child(2) { margin-left: 30px; }
+
+h5 {
+  color: #93762a;
+  margin: .1em;
+}
+
+a { text-decoration: none; }
+
+ul {
+  list-style: none;
+  margin-top: .875em;
+}
+
+ul li {
+  height: 3.313em;
+  width: 21.25em;
+  margin-bottom: .375em;
+}
+
+ul.shop li.first {
+  height: 15.375em;
+  /*background-color: white;*/
+  background-image: url(../../images/shop-logo-and-total.jpg);
+  background-size: cover;
+}
+
+ul.shop li.second {
+  height: 5.188em;
+  /*background-color: white;*/
+  background-image: url(../../images/barcode.jpg);
+  background-size: cover;
+}
+
+ul.shop li.last { background-color: #929397; }
+
+ul.receipt li.first {
+  height: 20.875em;
+  background-color: #d0d2d1;
+}
+
+ul.receipt li.first .receipt-container {
+  background-image: url(../../images/digital-receipt.jpg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: relative;
+  height: 85%;
+  width: 90%;
+  top: 5%;
+  left: 5%;
+  border: 1px solid #4bee6d;
+}
+
+ul.receipt li.last { background-color: #96762b; }
+

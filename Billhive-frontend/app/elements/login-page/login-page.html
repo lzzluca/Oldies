@@ -1,0 +1,98 @@
+<dom-module id="login-page">
+  <template>
+    <iron-ajax id="test"
+               url="http://api.billhive.co.uk/login"
+               method="POST"
+               content-type="application/x-www-form-urlencoded"
+               on-response="goToLandingPageFn"
+               on-error="_showSubmitError"
+               verbose
+               with-credentials>
+    </iron-ajax>
+
+    <link rel="stylesheet" href="login-page.css">
+
+    <div class="background-wrapper">
+      <div class="form-wrapper">
+        <form name="login">
+          <fieldset>
+            <input type="text"
+                   name="username"
+                   class="username"
+                   id="username"
+                   placeholder="username"
+                   on-change="_toggleSubmitButton" />
+            <input type="password"
+                   name="password"
+                   class="password"
+                   id="password"
+                   placeholder="password"
+                   on-change="_toggleSubmitButton" />
+            <div class="register"
+                  on-click="goToRegisterPageFn">Register new account</div>
+            <input type="button"
+                   class="disabled"
+                   value="Submit"
+                   id="submit"
+                   on-click="generateRequest" />
+          </fieldset>
+        </form>
+        <span id="errorbox" style="display: none;">The username or password is wrong</span>
+      </div>
+    </div>
+  </template>
+
+  <script>
+  (function() {
+    "use strict";
+
+    class LoginPage {
+
+      beforeRegister() {
+        this.is = "login-page";
+
+        // Define the properties object in beforeRegister.
+        this.properties = {
+          goToLandingPageFn: {
+            type: Function,
+            value: false
+          },
+          goToRegisterPageFn: {
+            type: Function,
+            value: false
+          }
+        };
+      }
+
+      generateRequest () {
+        this.$.test.params = {
+          "user": this.$.username.value.trim(),
+          "password": this.$.password.value.trim()
+        };
+        this.$.test.generateRequest();
+      }
+
+      _showSubmitError (err) {
+        console.log("Login error", err);
+        // TODO the error message should come from the server, not be hardcoded
+        this.$.errorbox.style.display="";
+      }
+
+      _toggleSubmitButton () {
+        const isUsernameEmpty = this.$.username.value.trim() === "";
+        const isPasswordEmpty = this.$.password.value.trim() === "";
+
+        if( !isUsernameEmpty && !isPasswordEmpty ) {
+          Polymer.Base.toggleClass("disabled", false, this.$.submit);
+        } else {
+          Polymer.Base.toggleClass("disabled", true, this.$.submit);
+        }
+      }
+
+    };
+
+    // element registration
+    Polymer(LoginPage);
+  })();
+  </script>
+ </dom-module>

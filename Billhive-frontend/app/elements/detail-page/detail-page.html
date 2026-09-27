@@ -1,0 +1,48 @@
+<dom-module id="detail-page">
+  <template
+    <link rel="stylesheet" href="detail-page.css">
+    <h5>Transactions</h3>
+    <div class="section shop">
+      <h3>Share</h3>
+      <h3>Print</h3>
+      <ul class="shop">
+        <li class="item first"></li>
+        <li class="item second"></li>
+        <li class="item last">Total [[transaction.total]] [[transaction.date]]</li>
+      </ul>
+    </div>
+    <div class="section receipt">
+      <h3>Receipt</h3>
+      <ul class="receipt">
+        <li class="item first"><div class="receipt-container"></div></li>
+        <li class="item last">Total [[transaction.total]] [[transaction.date]]</li>
+      </ul>
+    </div>
+  </template>
+
+  <script>
+  (function() {
+    "use strict";
+
+    class DetailPage {
+      beforeRegister() {
+        this.is = "detail-page";
+
+        // Define the properties object in beforeRegister.
+        this.properties = {
+          "transactionId": {
+            type: String,
+            value: undefined
+          },
+          "transaction": {
+            type: Object,
+            value: function() { return {}; }
+          }
+        };
+      }
+    }
+
+    Polymer(DetailPage);
+  })();
+  </script>
+</dom-module>

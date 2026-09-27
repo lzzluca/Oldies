@@ -1,0 +1,50 @@
+/*
+ *  Core
+ */
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+html {
+  height: 100%;
+  font-size: 16px;
+  line-height: 1.5em;
+  -webkit-font-smoothing: antialiased;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
+}
+
+body { height: 100%; }
+
+h1 {
+  font-size: 2.3em;
+  font-weight: 100;
+  text-rendering: geometricPrecision;
+}
+
+div.content { min-height: 500px; }
+
+/*
+ *  Style
+ */
+
+html { color: white; }
+
+body { background-color: #d19e0d; }
+
+h1 {
+  font-family: sans-serif;
+  margin: 1.3em 0 .67em 0;
+}
+
+/* Note:
+ *   3% is the same padding applied to the core-icon from the header-toolbar */
+div.content {
+  padding-left: 3%;
+  background-image: url(images/logo.png);
+  background-position: 92% 0px;
+  background-repeat: no-repeat;
+  background-size: 200px 200px;
+}

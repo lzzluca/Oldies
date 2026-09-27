@@ -1,0 +1,46 @@
+<html>
+  <head>
+    <style>
+
+      table {}
+
+      th, td {
+        background-color: #857D91;
+        width: 30px;
+      }
+
+      .corner {
+        visibility: hidden;
+      }
+
+      .trb.odd {
+        background-color: lightviolet;
+      }
+
+      .trb.even {
+        background-color: lightgrey;
+      }
+
+      .row-highlighted {
+        background-color: violet!important;
+      }
+
+      .row_selected {
+        background-color: blue!important;
+      }
+
+    </style>
+
+    <script type="text/javascript"
+            src="https://rawgit.com/lzzluca/Class/master/src/class-min.js"></script>
+    <script type="text/javascript" src="src/table_generator.js"></script>
+    <script type="text/javascript">
+      window.onload = function() {
+        document.getElementById("main_container").innerHTML  = new TableGenerator().getHTML();
+      };
+    </script>
+  </head>
+  <body>
+    <div id="main_container"></div>
+  </body>
+</html>

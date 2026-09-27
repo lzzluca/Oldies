@@ -1,0 +1,75 @@
+  /* all "pages number" buttons */
+  .paginator_p {
+	height: 12px;
+    background-color: #E8E8E8;
+    line-height: 10px;
+    font-size: 0.85em;
+    color: #445555;
+    text-align: center;
+    padding: 2px 0 0 0;
+    float: left;
+    cursor: pointer;
+  }
+
+  .paginator_p_bloc {
+	position: relative;
+	width: 3000px;
+  }
+
+  /* active button */
+  .paginator_p.selected {
+	background-color:#F8F8F8;
+	color:#445555;
+  }
+
+  .paginator_p_wrap {
+	position:relative;
+	overflow:hidden;
+    float:left;
+    top: 1px;
+  }
+
+  .paginator_slider {
+	clear: left;
+	height: 4px;
+    top: 4px;
+    background: #E8E8E8;
+    border: 1px solid lightgray;
+    position: relative;
+    margin-left: 79px;
+  }
+
+  .paginator_slider .ui-slider-handle {
+	width: 8px;
+	height: 10px;
+	position: absolute;
+    top: -4px;
+    background: #F8F8F8;
+    border: 1px solid gray;
+  }
+
+  /* active buttons */
+  #m_left, #o_left, #m_right, #o_right {
+    cursor: pointer;
+    float: left;
+    height: 11px;
+    font-size: 0.85em;
+    color: #445555;
+    padding: 0 5px 0 0;
+  }
+
+  #m_left {
+    margin: 4px 2px 0 0;
+  }
+
+  #o_left {
+    margin: 4px 4px 0 0;
+  }
+
+  #o_right {
+    margin: 4px 0 0 4px;
+  }
+
+  #m_right {
+    margin: 4px 0 0 2px;
+  }

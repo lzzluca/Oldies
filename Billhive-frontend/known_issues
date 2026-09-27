@@ -1,0 +1,20 @@
+Known issues:
+* Login
+    - Register post is still broken
+
+* General
+    - It is missing, in the top bar, a label with name (and avatar) of the
+      logged in user. It could also being used as button that opens a dropdown,
+      to access the user profile, logout, etc…
+    - The webapp is not full responsive (I think it can still fits tablets but
+      not smartphones). To be fixed by introducing Bootstrap
+
+* Transactions page
+    - Many minor style issues
+    - It is using some fake data (they are not fetched from the server)
+    - The list shows some data that does not respect the filters (“this month”
+      and “others”), that is on purpose, only to show a filled in list!
+
+* Details page:
+    - It is still a fake :( All of what is shown, is just images, there is nothing dynamic
+    - At the moment is broken and doesnt load the images correctly

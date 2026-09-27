@@ -1,0 +1,119 @@
+<dom-module id="register-page">
+  <template>
+    <iron-ajax id="test"
+               url="http://api.billhive.co.uk/register"
+               method="POST"
+               content-type="application/x-www-form-urlencoded"
+               on-response="goToLandingPage"
+               on-error="_showSubmitError"
+               verbose
+               with-credentials>
+    </iron-ajax>
+
+    <link rel="stylesheet" href="register-page.css">
+
+    <div class="background-wrapper">
+      <div class="form-wrapper">
+        <form name="register">
+          <fieldset>
+            <input type="text"
+                   name="username"
+                   class="username"
+                   id="username"
+                   placeholder="username"
+                   on-change="_toggleSubmitButton" />
+            <input type="password"
+                   name="password"
+                   class="password"
+                   id="password"
+                   placeholder="password"
+                   on-change="_toggleSubmitButton" />
+            <input type="text"
+                   name="email"
+                   class="email"
+                   id="email"
+                   placeholder="email"
+                   on-change="_toggleSubmitButton" />
+            <input type="text"
+                   name="firstname"
+                   class="firstname"
+                   id="firstname"
+                   placeholder="firstname"
+                   on-change="_toggleSubmitButton" />
+            <input type="text"
+                   name="lastname"
+                   class="lastname"
+                   id="lastname"
+                   placeholder="lastname"
+                   on-change="_toggleSubmitButton" />
+            <div class="button_wrapper">
+              <input type="button"
+                     class="disabled"
+                     value="Submit"
+                     id="submit"
+                     on-click="generateRequest" />
+              <input type="button"
+                     class=""
+                     value="Cancel"
+                     id="Cancel"
+                     on-click="goToLoginPageFn" />
+            </div>
+          </fieldset>
+        </form>
+        <span id="errorbox" style="display: none;">Registration failed</span>
+      </div>
+    </div>
+  </template>
+
+  <script>
+  (function () {
+    "use strict";
+
+    class RegisterPage {
+
+      beforeRegister () {
+        this.is = "register-page";
+
+        // Define the properties object in beforeRegister.
+        this.properties = {
+          goToLoginPageFn: {
+            type: Function,
+            value: false
+          },
+        };
+      }
+
+      generateRequest () {
+        this.$.test.params = {
+          "user": this.$.username.value.trim(),
+          "password": this.$.password.value.trim(),
+          "email": this.$.email.value.trim(),
+          "firstname": this.$.firstname.value.trim(),
+          "lastname": this.$.lastname.value.trim()
+        };
+        this.$.test.generateRequest();
+      }
+
+      _showSubmitError (err) {
+        console.log("Login error", err);
+        this.$.errorbox.style.display="";
+      }
+
+      _toggleSubmitButton () {
+        const isUsernameEmpty = this.$.username.value.trim() === "";
+        const isPasswordEmpty = this.$.password.value.trim() === "";
+        const isEmailEmpty = this.$.password.value.trim() === "";
+
+        if( !isUsernameEmpty && !isPasswordEmpty && !isEmailEmpty ) {
+          Polymer.Base.toggleClass("disabled", false, this.$.submit);
+        } else {
+          Polymer.Base.toggleClass("disabled", true, this.$.submit);
+        }
+      }
+
+    };
+
+    Polymer(RegisterPage);
+  })();
+  </script>
+ </dom-module>

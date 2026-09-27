@@ -1,0 +1,31 @@
+jPaginator4Datatable - the jPaginator plugin (http://remylab.github.com/jpaginator/) as paginator for Datatable (http://www.datatables.net/)
+
+* Author:
+Luca Lazzarini ( lzzluca@gmail.com  http://nerdstuckathome.wordpress.com/ )
+
+* License:
+Dual licensed under the MIT (http://mit-license.org/) and GPL (http://www.gnu.org/licenses/gpl.html) licenses.
+
+* On the web:
+https://github.com/lzzluca/jPaginator4Datatable/
+
+* Version:
+1.0
+
+* Depends:
+- jQuery Datatable: https://github.com/lzzluca/jPaginator4Datatable/
+- jPaginator: https://github.com/lzzluca/jPaginator4Datatable/
+- jQuery framework: http://www.jquery.com/
+- Jquery UI (components: core, widget, mouse, slider): http://jqueryui.com
+
+* Description:
+The jPaginator plugin (http://remylab.github.com/jpaginator/) as paginator for Datatable (http://www.datatables.net/)
+
+* Todo:
+Will follow
+
+* How to build it:
+Will follow
+
+
+I wrote it in my current company, WCN (wcn.co.uk), and i was allowed to release it as open source. Thanks (particularly to Jack Hobson) you!

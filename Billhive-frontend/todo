@@ -1,0 +1,33 @@
+At the moment I cannot use a component as static collection of functions:
+To @See the problem, check the element data-store or the file index.html.
+Actually I am not sure an element should be used as static collection of
+functions: when included in a template, is very difficult to check the template
+and know which are the wrappers for the helpers an which are part of the UI.
+Also I have to retrieve the elements by document.querySelector and somehow
+they are not ready when the JS is executed.
+Two not working examples of app-utils and transactions-page-utils.
+
+The Gulpfile.js has got some problems:
+* it is still missed an alias for the image folder
+* the vulcanization breaks by enabling the flag inlineCss or inlineScripts
+* it is important to inline the css in the html files, to get rid of the css
+  files in the elements' folder. To be done when fixed the above.
+* if I check the end of the file elements.vulcanized.html, I can see the html
+  is not "uglified"
+* I am running the crisper in the vucanize task and uglify in the babelify
+  task: not sure if I should make the crisper and uglify tasks
+* jscs needs more investigations
+* still not clear what:
+    var assets = $.useref.assets({searchPath: ['.tmp', 'app', 'dist']});
+  does and also how to use $ and $.if or when to call any plugin by $, as for
+  example $.uglify. Also: does $.useref.assets replace gulp-filter?
+
+To be added to the project:
+* Sass
+* Bootstrap
+* Redux?
+* Which (eventual) tool for immutable data structure?
+
+Would be nice to move to the "page" router; check how to use it here:
+https://plus.google.com/+TonyTrinh1/posts/FeU1U9wPtxz
+(also very interesting for Vulcanize + lazy loading)

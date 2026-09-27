@@ -1,0 +1,52 @@
+/*
+ *  Core
+ */
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+:host { font-family: sans-serif; }
+
+h3 { font-size: 1.7em; }
+
+h5 { font-size: 1.2em; }
+
+div.section {
+  width: 22%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+/*
+ *  Style
+ */
+
+:host { color: white; }
+
+h1 { margin: 1.3em 0 1em 0; }
+
+h3, h5 { font-weight: 500; }
+
+h3 { margin: .2em 0 0 0; }
+
+h5 {
+  color: #93762a;
+  margin: .1em;
+}
+
+h5.style-scope.landing-page:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+div.section {
+  border: 1px solid grey;
+  padding: 10px;
+}
+
+/* TODO I think you can delete this one */
+a { text-decoration: none; }
+

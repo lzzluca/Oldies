@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>unquote</title>
+
+  <link rel="stylesheet" href="index.css">
+
+  <meta charset="utf-8">
+
+  <!-- Third part dependencies -->
+  <script src="bower_components/webcomponentsjs/webcomponents-lite.min.js" async>
+  </script>
+
+  <script src="bower_components/moment/moment.js" async>
+  </script>
+
+  <link rel="import" href="elements/elements.html" async>
+</head>
+
+<body>
+  <span id="browser-sync-binding"></span>
+
+  <template is="dom-bind" id="app" >
+
+  <!-- <app-utils id="app-utils"></app-utils> -->
+  <!-- <transactions-page-utils id="transactions-page-utils"></transactions-page-utils> -->
+
+    <template is="dom-if" if="[[user.isUserAuthorized]]">
+      <header-topbar></header-topbar>
+      <data-store id="app-data-store"></data-store>
+      <div class="content">
+        <h1>Your Digital Shoebox</h1>
+        <app-router mode="pushstate">
+          <app-route
+            path="/landing"
+            element="landing-page"
+            on-before-data-binding="setRouteState"></app-route>
+          <app-route
+            path="/transactions"
+            element="transactions-page"
+            on-before-data-binding="setRouteState"></app-route>
+          <app-route
+            path="transactions/:transactionId"
+            element="detail-page"
+            on-before-data-binding="setRouteState">
+          <!-- default -->
+          <app-route
+            path="*"
+            import="not-found-page.html" template></app-route>
+        </app-router>
+      </div>
+    </template>
+
+    <template is="dom-if" if="[[!user.isUserAuthorized]]">
+      <app-router mode="pushstate">
+        <app-route
+          path="/login"
+          element="login-page"
+          on-before-data-binding="setRouteState"></app-route>
+        <app-route
+          path="/register"
+          element="register-page"
+          on-before-data-binding="setRouteState"></app-route>
+        <!-- default -->
+        <app-route
+          path="*"
+          redirect="/login"></app-route>
+      </app-router>
+    </template>
+  </template>
+
+  <!-- TODO check out what build does mean here.
+         Actually the JS above should be moved in the app.js script.
+         I wonder if I should do the same for all the components... -->
+  <!-- build:js scripts/app.js -->
+  <script src="scripts/app.js"></script>
+  <!-- endbuild-->
+
+</body>
+</html>

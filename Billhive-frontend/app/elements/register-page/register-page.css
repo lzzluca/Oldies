@@ -1,0 +1,71 @@
+/*
+ *  Core
+ */
+
+:host { font-family: sans-serif; }
+
+.background-wrapper {
+  height: 100%;
+  min-width: 900px;
+  min-height: 600px;
+  position: relative;
+}
+
+.form-wrapper {
+  top: 57%;
+  left: 3%;
+  width: 23%;
+  position: relative;
+}
+
+input {
+  width: 100%;
+  height: 25px;
+  display: block;
+}
+
+input[type=button] {
+  width: 46%;
+  display: inline;
+}
+
+/*
+ *  Style
+ */
+
+:host { color: white; }
+
+/* I need this to see the min-width applied correctly! */
+.background-wrapper {
+  /* TODO you really need to add relative paths to your configuration! */
+  background: url(../../images/login.jpg) no-repeat 0 0;
+  background-size: 100% 100%;
+}
+
+.form-wrapper {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+input {
+  padding: 5px 0 5px 5px;
+  margin: 5px 0 5px 0;
+}
+
+/* TODO make of .button_wrapper input[type=button] something generic! */
+.button_wrapper { text-align: center; }
+
+/* 5px as the padding left on the input TODO make a var of it! */
+.button_wrapper input:nth-child(1) { margin-right: -5px; }
+
+.button_wrapper input[type=button] {
+  color: white;
+  background-color:black;
+  opacity: 1;
+  border-radius: 5px;
+}
+
+.button_wrapper input[type=button].disabled { opacity: .5; }
+
+/* TODO not in love with id as selector */
+#errorbox { color: #dd1122; }

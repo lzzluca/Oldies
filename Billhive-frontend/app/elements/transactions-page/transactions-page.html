@@ -1,0 +1,72 @@
+<dom-module  id="transactions-page">
+  <template>
+    <link rel="stylesheet" href="transactions-page.css">
+    <h5>Transactions</h3>
+    <div class="section this-month">
+      <h3>This month</h3>
+      <ul class="this-month">
+        <template is="dom-repeat" items="[[transactions.thisMonth]]">
+        <li class="transaction" data-transaction-id="[[item.date]]" on-click="_onTransactionClick">
+            <p class="store-logo">logo</p>
+            <span class="wrapper">
+              <p class="store-name">[[item.store]]</p>
+              <p class="date">[[item.date]]</p>
+              <p class="expense">[[item.total]]</p>
+            </span>
+          </li>
+          </template>
+        <li class="transaction last"></li>
+      </ul>
+    </div>
+    <div class="section last-transactions">
+      <h3>Last transactions</h3>
+      <ul class="last-transactions">
+        <template is="dom-repeat" items="[[transactions.lastTransactions]]">
+          <li class="transaction" data-transaction-id="[[item.date]]" on-click="_onTransactionClick">
+            <p class="store-logo">logo</p>
+            <span class="wrapper">
+              <p class="store-name">[[item.store]]</p>
+              <p class="date">[[item.date]]</p>
+              <p class="expense">[[item.total]]</p>
+            </span>
+          </li>
+        </template>
+        <li class="item last"></li>
+      </ul>
+    </div>
+  </template>
+
+  <script>
+  (function() {
+    "use strict";
+
+    class TransactionsPage {
+
+      beforeRegister () {
+        this.is = "transactions-page";
+
+        this.properties = {
+          transactions: {
+            type: Object,
+            reflectToAttribute: true,
+            value: function() {
+              return { thisMonth: [], lastTransactions: [] }
+            }
+          },
+          goToDetailPageFn: {
+            type: Function,
+            value: false
+          }
+        };
+      }
+
+      _onTransactionClick (e) {
+        this.goToDetailPageFn(e.currentTarget.dataTransactionId);
+      }
+
+    };
+
+    Polymer(TransactionsPage);
+  })();
+  </script>
+</dom-module>

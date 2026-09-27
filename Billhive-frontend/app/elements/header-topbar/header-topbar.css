@@ -1,0 +1,21 @@
+/*
+ *  Core
+ */
+
+.header-topbar {
+  height: 34px;
+  overflow: hidden;
+}
+
+.header-topbar core-icon { position: absolute; }
+
+/*
+ *  Style
+ */
+
+.header-topbar { background-color: black; }
+
+.header-topbar core-icon {
+  margin: 5px 3%;
+  background-color: white;
+}

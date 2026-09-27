@@ -1,0 +1,24 @@
+<dom-module id="app-utils">
+  <template></template>
+  <script>
+  (function() {
+    "use strict";
+
+    class AppUtils {
+
+      beforeRegister () {
+        this.is = "app-utils";
+
+        this.properties = {};
+      }
+
+      isUserAuthenticated () {
+        return document.cookie !== "";
+      }
+
+    };
+
+    Polymer(AppUtils);
+  })();
+  </script>
+</dom-module>

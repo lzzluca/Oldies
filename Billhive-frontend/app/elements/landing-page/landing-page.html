@@ -1,0 +1,40 @@
+<dom-module id="landing-page">
+  <template>
+    <link rel="stylesheet" href="landing-page.css">
+    <div class="section transactions">
+      <h5 on-click="goToTransactionsPageFn">Transactions</h3>
+      <h3>Receipts</h3>
+    </div>
+    <div class="section stores">
+      <a><h5>Favourite</h3></a>
+      <h3>Spent this month</h3>
+    </div>
+    <div class="section graphs">
+      <a><h5>My finance</h3></a>
+      <h3>Most used shops</h3>
+    </div>
+  </template>
+
+  <script>
+  (function() {
+    "use strict";
+
+    class LandingPage {
+
+      beforeRegister () {
+        this.is = "landing-page";
+
+        this.properties = {
+          goToTransactionsPageFn: {
+            type: Function,
+            value: false
+          }
+        };
+      }
+
+    };
+
+    Polymer(LandingPage);
+  })();
+  </script>
+ </dom-module>

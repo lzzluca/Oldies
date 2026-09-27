@@ -1,0 +1,88 @@
+<dom-module  id="data-store">
+  <template>
+  <transactions-page-utils></transactions-page-utils>
+    <iron-ajax auto
+               url="[[_computeUrl(handCodedUUID)]]"
+               method="GET"
+               headers='{"Access-Control-Allow-Credentials":"true"}'
+               params='{"datestart":"1449787642","dateend":"1450219642"}'
+               on-response="_handleRequest"
+               on-error="_handleRequest"
+               verbose
+               with-credentials>
+    </iron-ajax>
+  </template>
+
+  <!-- TODO to be deleted: only for offline work purpose!! -->
+  <script type="text/javascript">
+    window.response = {"stores":[{"001":{"location":"Putney Bridge","name":"Marks&SPencer"},"002":{"location":"Hammersmith","name":"Waitrose"},"003":{"name":"Tesco","location":"Tower Hill"}}],"transactions":[{"total":"£150","store":"001","date":1433693545},{"total":"£150","store":"001","date":1433693545},{"total":"£150","store":"001","date":1433693545},{"total":"£150","store":"001","date":1433693545},{"total":"£150","store":"001","date":1433693545},{"total":"£150","store":"001","date":1433693545},{"total":"£150","store":"001","date":1433693545},{"total":"£150","store":"001","date":1433693545},{"total":"£150","store":"001","date":1433693545},{"total":"£150","store":"001","date":1433693545},{"total":"£150","store":"001","date":1433693545},{"total":"£150","store":"001","date":1433693545},{"total":"£150","store":"001","date":1433693545},{"total":"£150","store":"001","date":1433693545},{"total":"£150","store":"001","date":1433693545},{"total":"£150","store":"001","date":1433693545},{"total":"£150","store":"001","date":1433693545},{"total":"£150","store":"001","date":1433693545},{"total":"£150","store":"001","date":1433693545},{"total":"£150","store":"001","date":1433693545}]}
+  </script>
+
+  <script>
+  (function() {
+    "use strict";
+
+    // TODO how to import the filters from the transactions-page-utils element?
+    //var filters = document.querySelector("transactions-page-utils").transactionsPage.filters;
+    var filters = {
+      thisMonth: (transaction) => (true),
+      lastTransactions: (transaction) => (true)
+    };
+
+    class DataStore {
+
+      beforeRegister() {
+        this.is = "data-store";
+
+        this.properties = {
+          transactions: {
+            type: Object,
+            // this generates the private _setTransactions to set the value
+            readOnly: true,
+            value: function() {
+              return { thisMonth: [], lastTransactions: [] };
+            }
+          },
+          handCodedUUID: {
+            type: String,
+            value: "2BF3EACD-CA1B-45B4-9285-616FC796EACE"
+          }
+        };
+      }
+
+      _computeUrl (UUID) {
+        return "http://api.billhive.co.uk/user/" + UUID + "/page/transactions";
+      }
+
+      _handleRequest (event, detail, sender) {
+        // TODO to be deleted: only for offline work purpose!!
+        //   the OR it is only to load fake data
+        var response = event.detail.response || window.response;
+
+        console.log(this.is + ":", "data fetched!");
+
+        if(response) {
+          // conversion from epoch
+          var transactions = response.transactions
+            .map(function(transaction) {
+              // TODO now this one depends on moment
+              transaction.date = moment(new Date(transaction.date * 1000)).
+                format("dddd, MMMM Do YYYY, h:mm: a");
+              return transaction;
+            });
+
+          this._setTransactions({
+            thisMonth: transactions.filter(filters.thisMonth),
+            lastTransactions: transactions.filter(filters.lastTransactions)
+          });
+
+          Polymer.Base.fire("data-store_fetchDone", transactions, {"node": this});
+        }
+      }
+
+    };
+
+    Polymer(DataStore);
+  })();
+  </script>
+ </dom-module>

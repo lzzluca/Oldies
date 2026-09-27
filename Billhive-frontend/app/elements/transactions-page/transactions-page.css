@@ -1,0 +1,99 @@
+/*
+ *  Core
+ */
+
+:host { font-family: sans-serif; }
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+h3 { font-size: 1.7em; }
+
+h5 { font-size: 1.2em; }
+
+div.section {
+  /* TODO Why it takes 2 lines, using widht: 50%; ??? */
+  width: 33.3%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+/* Note: this is to make the p.store-logo rules referring to this li */
+ul li {
+  height: 3.313em;
+  width: 21.25em;
+  position: relative
+}
+
+ul li span.wrapper {
+  width: 100%;
+  display: inline-block;
+}
+
+ul li p {
+  font-size: 1em;
+  line-height: 1em;
+  display: inline-block;
+}
+
+ul li p.store-logo {
+  height: 100%;
+  width: 18%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+ul li p.expense { display: block; }
+
+/*
+ *  Style
+ */
+
+:host { color: white; }
+
+h3, h5 { font-weight: 500; }
+
+h3 { margin: .2em 0 0 0; }
+
+h5 {
+  color: #93762a;
+  margin: .1em;
+}
+
+a { text-decoration: none; }
+
+ul {
+  list-style: none;
+  margin-top: .875em;
+}
+
+ul li {
+  margin-bottom: .188rem;
+}
+
+ul li p { font-weight: 200; }
+
+ul li.last { margin-top: .375rem; }
+
+ul.this-month li { background-color: white; }
+ul.this-month li.last { background-color: #96762b; }
+
+ul.last-transactions li { background-color: #d0d2d1; }
+ul.last-transactions li.last { background-color: #929397; }
+
+ul.this-month li p { color: #dddddd; }
+
+ul li span.wrapper {
+  margin-left: 20%;
+  padding-top: 10px;
+}
+
+ul li p.date { margin-left: 28px;}
+
+ul.this-month li p.store-logo {}
+ul.this-month li p.store-name {}
+ul.this-month li p.expense { color: #d19e0d }

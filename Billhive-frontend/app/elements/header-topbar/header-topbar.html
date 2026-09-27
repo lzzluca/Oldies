@@ -1,0 +1,24 @@
+<dom-module  id="header-topbar">
+  <template>
+    <link rel="stylesheet" href="header-topbar.css">
+
+    <div id="header-topbar" class="header-topbar">
+      <iron-icon src="../../icons.svg"></iron-icon >
+    </div>
+  </template>
+
+  <script>
+  (function() {
+    "use strict";
+
+    class HeaderTopbar {
+      beforeRegister () {
+        this.id = "header-topbar";
+      }
+    }
+
+    Polymer(HeaderTopbar);
+  });
+  </script>
+</dom-module>
+
