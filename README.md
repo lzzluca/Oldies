@@ -1,2 +1,1 @@
-# Oldies
-Old works stored here
+Umbrella repo for old, no-longer-relevant projects. Keeping them around for nostalgia :)
